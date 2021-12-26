@@ -10,7 +10,8 @@ public:
             for (size_t i = 0; i < sz; ++i)
                 cout << vec[i] << (i == sz - 1 ? term : sep);
             flush(cout);
-        } else {
+        }
+        else {
             for (size_t i = 0; i < sz; ++i)
                 cerr << vec[i] << (i == sz - 1 ? term : sep);
             flush(cerr);
@@ -19,11 +20,12 @@ public:
 
     template<typename T>
     void pvec(const T &vec, size_t sz) {
-        if (is_cout)
-            for (size_t i = 0; i < sz; ++i) {
+        if (is_cout) {
+            for (size_t i = 0; i < sz; ++i)
                 cout << vec[i] << (i == sz - 1 ? term : sep);
-                flush(cout);
-            } else {
+            flush(cout);
+        }
+        else {
             for (size_t i = 0; i < sz; ++i)
                 cerr << vec[i] << (i == sz - 1 ? term : sep);
             flush(cerr);
@@ -36,12 +38,13 @@ public:
         size_t w = mat[0].size();//mat.size() > 0 を仮定
         if (is_cout) {
             for (size_t i = 0; i < h; ++i)
-                for (size_t j = 0; j < w; j++)
+                for (size_t j = 0; j < w; ++j)
                     cout << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cout);
-        } else {
+        }
+        else {
             for (size_t i = 0; i < h; ++i)
-                for (size_t j = 0; j < w; j++)
+                for (size_t j = 0; j < w; ++j)
                     cerr << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cerr);
         }
@@ -51,12 +54,13 @@ public:
     void pmat(const T &mat, size_t h, size_t w) {
         if (is_cout) {
             for (size_t i = 0; i < h; ++i)
-                for (size_t j = 0; j < w; j++)
+                for (size_t j = 0; j < w; ++j)
                     cout << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cout);
-        } else {
+        }
+        else {
             for (size_t i = 0; i < h; ++i)
-                for (size_t j = 0; j < w; j++)
+                for (size_t j = 0; j < w; ++j)
                     cerr << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cerr);
         }
