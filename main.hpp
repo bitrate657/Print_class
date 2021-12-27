@@ -11,11 +11,12 @@ public:
                 cout << vec[i] << (i == sz - 1 ? term : sep);
             flush(cout);
         }
+#ifdef _DEBUG
         else {
             for (size_t i = 0; i < sz; ++i)
                 cerr << vec[i] << (i == sz - 1 ? term : sep);
-            flush(cerr);
         }
+#endif
     }
 
     template<typename T>
@@ -25,11 +26,12 @@ public:
                 cout << vec[i] << (i == sz - 1 ? term : sep);
             flush(cout);
         }
+#ifdef _DEBUG
         else {
             for (size_t i = 0; i < sz; ++i)
                 cerr << vec[i] << (i == sz - 1 ? term : sep);
-            flush(cerr);
         }
+#endif
     }
 
     template<typename T>
@@ -42,12 +44,13 @@ public:
                     cout << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cout);
         }
+#ifdef _DEBUG
         else {
             for (size_t i = 0; i < h; ++i)
                 for (size_t j = 0; j < w; ++j)
                     cerr << mat[i][j] << (j == w - 1 ? term : sep);
-            flush(cerr);
         }
+#endif
     }
 
     template<typename T>
@@ -58,21 +61,26 @@ public:
                     cout << mat[i][j] << (j == w - 1 ? term : sep);
             flush(cout);
         }
+#ifdef _DEBUG
         else {
             for (size_t i = 0; i < h; ++i)
                 for (size_t j = 0; j < w; ++j)
                     cerr << mat[i][j] << (j == w - 1 ? term : sep);
-            flush(cerr);
         }
+#endif
     }
 
     template<typename... Args>
     void operator()(Args... args) const {
-        print(args...);
-        if (is_cout)
+        if (is_cout) {
+            print(args...);
             flush(cout);
-        else
-            flush(cerr);
+        }
+#ifdef _DEBUG
+        else {
+            print(args...);
+        }
+#endif
     }
 
 private:
